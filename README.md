@@ -16,6 +16,20 @@ Before diving into the infrastructure creation, make sure you have the following
 
   - Domain Name Configured manually and add the Name Servers to your Domain Provider
 
+## Best practices
+store state files on remote location
+    - so let's first create an s3 bucket to save the state file on a remote location. in my case it is s3 but in yours, it might be different. so just head over to s3 and click on create 
+      bucket button. give any name to your bucket and click on Create a bucket.
+
+try to keep versioning for backups
+    - You can enable versioning while creating a bucket but if you forget then select the bucket that you have just created and click on the Properties tab and on the top you will find 
+      the option Bucket versioning. click on edit and enable it.
+
+state-locking so that we can keep tfstate file consistent while working on a collaborative project
+    - please go to the dynamoDB service dashboard and click on create table button. Give your table name whatever you want but in Partition Key give the name LockID (NOTE: it is case 
+      sensitive) coz then only dynamoDB will be able to lock the file and release the file. and then click on create table button. The locking system is just like the semaphore that we 
+      have studied in the Operating system and here tfstate file is a critical section. so two processes should not access it simultaneously.
+
 ## Features
 
 - **Modular Structure:** The project is organized into dedicated modules for each AWS service, promoting reusability and maintainability.
