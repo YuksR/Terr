@@ -11,6 +11,7 @@ variable "private-cidr2" {}
 variable "private-subnet2" {}
 variable "eip-name1" {}
 variable "eip-name2" {}
+
 variable "ngw-name1" {}
 variable "ngw-name2" {}
 variable "public-rt-name1" {}
