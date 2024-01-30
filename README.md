@@ -50,8 +50,8 @@ Follow these steps to deploy the Two-Tier architecture:
 2.  **Plan and Apply:**
     ```bash
     terraform init
-    terraform plan -var-file=variables.tfvars
-    terraform apply -var-file=variables.tfvars --auto-approve
+    terraform plan -var-file=variable.tfvars
+    terraform apply -var-file=variable.tfvars --auto-approve
     ```
 
 3. **Cleanup:**
